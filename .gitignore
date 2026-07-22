@@ -17,3 +17,7 @@ logs/
 # Archivos del sistema
 .DS_Store
 Thumbs.db
+
+# Datos de entrada/salida (contenido generado o personal, no código)
+input/
+output/
