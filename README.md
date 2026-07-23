@@ -6,7 +6,7 @@ Herramienta desarrollada en Python para convertir documentos e imágenes a forma
 
 # Objetivos
 
-El proyecto busca automatizar la conversión de distintos formatos de documentos hacia Markdown, preservando en la mayor medida posible:
+El proyecto automatiza la conversión de distintos formatos de documentos hacia Markdown, preservando en la mayor medida posible:
 
 - estructura
 - títulos
@@ -15,7 +15,7 @@ El proyecto busca automatizar la conversión de distintos formatos de documentos
 - listas
 - metadatos
 
-El sistema será escalable para soportar múltiples tipos de documentos y diferentes motores de extracción.
+El sistema es escalable para soportar múltiples tipos de documentos y diferentes motores de extracción.
 
 ---
 
@@ -30,14 +30,6 @@ El sistema será escalable para soportar múltiples tipos de documentos y difere
 - Git
 - VS Code
 
-Tecnologías futuras:
-
-- OCR
-- Modelos Vision
-- LangChain
-- ChromaDB
-- FAISS
-
 > Para OCR en imágenes se requiere tener instalado Tesseract OCR en el sistema.
 >
 > En Windows, si no está en `PATH`, puedes definir:
@@ -50,6 +42,42 @@ Tecnologías futuras:
 >
 > - `C:\Program Files\Tesseract-OCR\tesseract.exe`
 > - `C:\Program Files (x86)\Tesseract-OCR\tesseract.exe`
+
+---
+
+# Instalación
+
+```bash
+git clone https://github.com/JohannaGonzalezInacap/IA-Document-Converter.git
+cd IA-Document-Converter
+python -m venv .venv
+.venv\Scripts\activate     # Windows
+# source .venv/bin/activate  # Linux/Mac
+pip install -r requirements.txt
+```
+
+---
+
+# Uso
+
+1. Coloca los documentos o imágenes a convertir dentro de `input/`.
+2. Ejecuta:
+
+```bash
+python main.py
+```
+
+3. Los archivos `.md` generados quedarán disponibles en `output/`.
+
+---
+
+# Tests
+
+El proyecto cuenta con una suite de pruebas automatizadas con Pytest (100% aprobadas):
+
+```bash
+pytest
+```
 
 ---
 
@@ -168,7 +196,7 @@ No guarda archivos.
 
 ## ocr.py
 
-Procesará imágenes cuando el documento no contenga texto.
+Procesa imágenes cuando el documento no contiene texto.
 
 Entrada:
 
@@ -214,7 +242,7 @@ No realiza conversiones.
 
 Configuración global del proyecto.
 
-Contendrá:
+Contiene:
 
 - rutas
 - formatos soportados
@@ -243,25 +271,15 @@ Ejemplos:
 
 ```
 PDF
-
-↓
-
+  ↓
 Docling
-
-↓
-
+  ↓
 Markdown
-
-↓
-
+  ↓
 Cleaner
-
-↓
-
+  ↓
 Exporter
-
-↓
-
+  ↓
 Archivo .md
 ```
 
@@ -271,25 +289,15 @@ Archivo .md
 
 ```
 Imagen
-
-↓
-
+  ↓
 OCR
-
-↓
-
+  ↓
 Markdown
-
-↓
-
+  ↓
 Cleaner
-
-↓
-
+  ↓
 Exporter
-
-↓
-
+  ↓
 Archivo .md
 ```
 
@@ -333,62 +341,54 @@ Punto central de ejecución.
 
 ## Responsabilidad única
 
-Cada módulo debe hacer una sola cosa.
+Cada módulo hace una sola cosa.
 
 ---
 
 ## Bajo acoplamiento
 
-Los módulos deben depender lo menos posible entre sí.
+Los módulos dependen lo menos posible entre sí.
 
 ---
 
 ## Alta cohesión
 
-Cada archivo debe contener funcionalidades relacionadas.
+Cada archivo contiene funcionalidades relacionadas.
 
 ---
 
 ## Escalabilidad
 
-La incorporación de nuevos formatos no debe requerir modificar módulos existentes.
+La incorporación de nuevos formatos no requiere modificar módulos existentes.
 
 ---
 
-# Roadmap
+# Estado actual — Versión 1.0
 
-## Versión 0.1
-
-- [x] Arquitectura
+- [x] Arquitectura modular (SOLID)
 - [x] Configuración
-- [x] Exportador
-- [ ] Conversión PDF
-- [ ] Controlador
-- [ ] Main
-
----
-
-## Versión 0.2
-
-- [ ] OCR
-- [ ] Limpieza de Markdown
-- [ ] Procesamiento por lotes
-
----
-
-## Versión 0.3
-
+- [x] Conversión de PDF (Docling)
+- [x] Conversión de imágenes
+- [x] OCR (Tesseract)
+- [x] Limpieza y normalización de Markdown
 - [x] Extracción de tablas (básica a Markdown)
 - [x] Descripción de imágenes (orientación, tamaño y color)
 - [x] Metadata (archivo, formato y propiedades base)
+- [x] Exportación de archivos
+- [x] Optimización para RAG (normalización + segmentación de párrafos)
+- [x] Suite de pruebas automatizadas (Pytest)
 
 ---
 
-## Versión 1.0
+# Próximos pasos
 
-- [x] Conversión PDF
-- [x] Conversión de imágenes
-- [x] OCR (básico con Tesseract)
-- [x] Limpieza
-- [x] Exportación
-- [x] Optimización para RAG (normalización + segmentación de párrafos)
+- [ ] Procesamiento por lotes
+- [ ] Integración con LangChain
+- [ ] Integración con ChromaDB / FAISS para indexación vectorial
+- [ ] Soporte para modelos de Vision en la extracción de imágenes
+
+---
+
+# Autora
+
+Johanna González — [GitHub](https://github.com/JohannaGonzalezInacap) · [LinkedIn](https://www.linkedin.com/in/johanna-gonzalez-desarrollador)
